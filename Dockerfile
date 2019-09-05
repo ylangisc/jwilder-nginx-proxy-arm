@@ -29,8 +29,9 @@ RUN wget --quiet https://github.com/jwilder/docker-gen/releases/download/$DOCKER
  && rm /docker-gen-alpine-linux-armhf-$DOCKER_GEN_VERSION.tar.gz
 
 
-ENV NGINX_PROXY_VERSION "0.6.0"
+ENV NGINX_PROXY_VERSION "master"
 RUN git clone --branch ${NGINX_PROXY_VERSION} https://github.com/jwilder/nginx-proxy.git /app
+COPY nginx.tmpl /app
 
 WORKDIR /app/
 
